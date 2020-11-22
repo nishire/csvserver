@@ -1,0 +1,15 @@
+services:
+  csvserver:
+    image: "nishant-infracloudio:latest" 
+    environment:
+      - CSVSERVER_BORDER=Orange
+    volumes:
+    #  - ./gencsv.sh:/nishant
+    ports:
+      - "9393:9300"
+  prometheus:
+     image: "prom/prometheus"
+     volumes: 
+       - ./prometheus.yml:/etc/prometheus/prometheus.yml
+     ports:
+       - "9090:9090"
